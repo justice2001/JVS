@@ -2,12 +2,17 @@
   <div id="banner-switcher">
     <div id="banner-switcher-item-box">
       <ul id="banner-switcher-item">
-        <li v-show="index === nowIdx" v-for="(item,index) in bannerData"><img :src="item.cover" alt=""></li>
+        <li :class="{'idx-img-act': index === nowIdx}" v-for="(item,index) in bannerData"><a :href="item.link"><img :src="item.cover" alt=""></a></li>
       </ul>
     </div>
     <div id="idx-sel-box">
       <ul id="idx-sel">
-        <li :class="{'idx-sel-act':nowIdx === index}" v-for="(item,index) in bannerData"></li>
+        <li :class="{'idx-sel-act':nowIdx === index}" class="btn-sel" v-for="(item,index) in bannerData" @click="changeTo(index)"></li>
+      </ul>
+    </div>
+    <div id="banner-switcher-text-box">
+      <ul id="banner-switcher-text">
+        <li v-show="nowIdx === index" v-for="(item,index) in bannerData"> {{ item.name }} </li>
       </ul>
     </div>
   </div>
@@ -22,30 +27,55 @@ export default {
     return {
       bannerData: [
         {
-          name: 'XXXXXXXXXX1',
-          cover: 'https://i0.hdslb.com/bfs/bangumi/image/3d3a14c966a0a9aaf6c82fa5254a8646c1449455.jpg@2320w_664h.jpg'
+          name: '标题1',
+          cover: require('../../assets/tmp/2.jpg'),
+          link: 'https://www.baidu.com'
         },
         {
-          name: 'XXXXXXXXXX2',
-          cover: 'https://i0.hdslb.com/bfs/bangumi/image/3d3a14c966a0a9aaf6c82fa5254a8646c1449455.jpg@2320w_664h.jpg'
+          name: '标题2',
+          cover: require('../../assets/tmp/3.png'),
+          link: 'https://www.baidu.com'
         },
         {
-          name: 'XXXXXXXXXX3',
-          cover: 'https://i0.hdslb.com/bfs/bangumi/image/3d3a14c966a0a9aaf6c82fa5254a8646c1449455.jpg@2320w_664h.jpg'
+          name: '标题3',
+          cover: require('../../assets/tmp/2.jpg'),
+          link: 'https://www.baidu.com'
         },
         {
-          name: 'XXXXXXXXXX4',
-          cover: 'https://i0.hdslb.com/bfs/bangumi/image/3d3a14c966a0a9aaf6c82fa5254a8646c1449455.jpg@2320w_664h.jpg'
+          name: '标题4',
+          cover: require('../../assets/tmp/3.png'),
+          link: 'https://www.baidu.com'
         },
       ],
-      nowIdx: 0
+      nowIdx: 0,
+      Timer: 0
     }
   },
   methods: {
-
+    // 计时器
+    setSwitch() {
+      this.Timer = setInterval(()=> {
+        if (this.nowIdx === this.bannerData.length - 1) {
+          this.nowIdx = 0;
+          return ;
+        }
+        this.nowIdx ++;
+      },10000)
+    },
+    // 切换页面
+    changeTo(idx) {
+      clearInterval(this.Timer)
+      this.nowIdx = idx
+      this.setSwitch()
+    }
+  },
+  mounted() {
+    this.setSwitch()
   },
   components: {
     BannerSwitcherItem
+  },
+  watch: {
   }
 }
 </script>
@@ -57,10 +87,19 @@ export default {
   }
 
   #banner-switcher-item {
+    position: relative;
     margin: 0;
     padding: 0;
     height: 337px;
     overflow: hidden;
+  }
+
+  #banner-switcher-item li {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: all 1s;
+    opacity: 0;
   }
 
   ul li {
@@ -80,13 +119,25 @@ export default {
 
   #idx-sel li {
     width: 30px;
-    height: 20px;
-    border-radius: 15px;
+    height: 10px;
+    border-radius: 10px;
     margin: 0 5px;
-    border: red solid 3px;
+    border: #e3e3e3 solid 1px;
+    transition: background-color 500ms;
   }
 
   .idx-sel-act {
-    background-color: red;
+    background-color: #e3e3e3;
+  }
+
+  .idx-img-act {
+    opacity: 1 !important;
+  }
+
+  #banner-switcher-text-box {
+    position: absolute;
+    left: 10px;
+    bottom: 40px;
+    color: #e3e3e3;
   }
 </style>

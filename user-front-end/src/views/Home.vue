@@ -1,7 +1,10 @@
 <template>
   <div id="home-page">
-    <div id="banner-switcher-box">
+    <div id="banner-switcher-box" class="box">
       <banner-switcher></banner-switcher>
+    </div>
+    <div id="weekly-box" class="box">
+      本周动画放送表
     </div>
   </div>
 </template>
@@ -18,8 +21,11 @@ export default {
 </script>
 
 <style scoped>
-  #banner-switcher-box {
+  .box {
     margin: 0 auto;
     width: 1200px;
+  }
+
+  #banner-switcher-box {
   }
 </style>
