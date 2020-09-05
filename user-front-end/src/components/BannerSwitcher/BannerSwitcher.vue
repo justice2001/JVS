@@ -19,8 +19,6 @@
 </template>
 
 <script>
-import BannerSwitcherItem from "@/components/BannerSwitcher/BannerSwitcherItem";
-
 export default {
   name: "BannerSwitcher",
   data() {
@@ -71,9 +69,6 @@ export default {
   },
   mounted() {
     this.setSwitch()
-  },
-  components: {
-    BannerSwitcherItem
   },
   watch: {
   }

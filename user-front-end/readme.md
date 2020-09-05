@@ -1,1 +1,3 @@
-JVS Server
+# 基于Spring + Vue的视频网站
+
+(学习作品)(正在开发)

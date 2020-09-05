@@ -50,6 +50,10 @@ body {
   margin: 0;
 }
 
+.clear-fix {
+  clear: both;
+}
+
 .m-no-select {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
