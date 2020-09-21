@@ -42,7 +42,14 @@ export default {
     }
   },
   mounted() {
-    getShin().then(response=>{
+    let today = new Date().getDay()
+    this.selDay = today;
+    this.dayMap[today] = '今天'
+    let filter = true;
+    if (this.$store.state.loginStates.login === 1) {
+        filter = this.$store.state.loginStates.filterR18;
+    }
+    getShin(filter).then(response=>{
       this.shinData = response.data.bangumiList
       console.log(response.data)
     })

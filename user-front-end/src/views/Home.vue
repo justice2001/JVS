@@ -6,8 +6,8 @@
     <div id="two-col-box" class="box">
 <!--      左边 900-->
       <div id="left-box">
-        <div id="weekly-box">
-          <bangumi-shin></bangumi-shin>
+        <div id="newly-box">
+          <newly-upload></newly-upload>
         </div>
       </div>
 <!--      右边 300  -->
@@ -23,12 +23,14 @@
 <script>
 import BannerSwitcher from "@/components/BannerSwitcher/BannerSwitcher";
 import BangumiShin from "@/components/BangumiShin/BangumiShin";
+import NewlyUpload from "@/components/NewlyUpload/NewlyUpload";
 
 export default {
   name: 'Home',
   components: {
     BannerSwitcher,
-    BangumiShin
+    BangumiShin,
+    NewlyUpload
   }
 }
 </script>

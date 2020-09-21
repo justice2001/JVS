@@ -8,7 +8,7 @@ const thirdApi = new axios.create({
     timeout: 5000
 })
 
-export function getShin() {
+export function getShin(filter) {
     return thirdApi.get('bangumi/shin')
 }
 

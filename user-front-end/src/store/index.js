@@ -11,7 +11,8 @@ export default new Vuex.Store({
     loginStates: {
       login: 1,
       userHead: require('../assets/tmp/3.webp'),
-      userName: 'zhengyi59'
+      userName: 'zhengyi59',
+      filterR18: false
     }
   },
   mutations: {
