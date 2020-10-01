@@ -26,22 +26,22 @@ export default {
       bannerData: [
         {
           name: '标题1',
-          cover: require('../../assets/tmp/2.jpg'),
+          cover: require('../../../assets/tmp/2.jpg'),
           link: 'https://www.baidu.com'
         },
         {
           name: '标题2',
-          cover: require('../../assets/tmp/3.png'),
+          cover: require('../../../assets/tmp/3.png'),
           link: 'https://www.baidu.com'
         },
         {
           name: '标题3',
-          cover: require('../../assets/tmp/2.jpg'),
+          cover: require('../../../assets/tmp/2.jpg'),
           link: 'https://www.baidu.com'
         },
         {
           name: '标题4',
-          cover: require('../../assets/tmp/3.png'),
+          cover: require('../../../assets/tmp/3.png'),
           link: 'https://www.baidu.com'
         },
       ],
