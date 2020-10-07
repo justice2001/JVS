@@ -136,10 +136,6 @@ export default {
 </script>
 
 <style scoped>
-  .box {
-    margin: 0 auto;
-    width: 1200px;
-  }
 
   #banner-switcher-box {
   }

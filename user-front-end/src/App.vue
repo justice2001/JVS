@@ -51,7 +51,13 @@ body {
 }
 
 .clear-fix {
+  list-style: none;
   clear: both;
+}
+
+.box {
+  margin: 0 auto;
+  width: 1200px;
 }
 
 .m-no-select {
